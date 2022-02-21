@@ -15,12 +15,6 @@ const Card = () => {
 
 }
 
-
-
-
-
-
-
-// 
+// he123 
 // 
 export default Card;
