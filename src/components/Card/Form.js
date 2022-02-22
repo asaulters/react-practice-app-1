@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 
 // import Button from './UI/Button'
 
-const Form = () => {
+const Form = (props) => {
 
-    const [newUserName, setNewUserName] = useState('');
-    const [newUserAge, setNewUserAge] = useState('');
-    const [isEditing, setIsEditing] = useState('false')
+    const [newUserName, setNewUserName] = useState("''");
+    const [newUserAge, setNewUserAge] = useState("");
+    // const [isEditing, setIsEditing] = useState('false')
 
     const newUserNameHandler = (e) => {
         setNewUserName(e.target.value)
@@ -15,15 +15,24 @@ const Form = () => {
 
     const newUserAgeHandler = (e) => {
         setNewUserAge(e.target.value)
+        console.log(e.target.value)
 
     }
 
     const newUserHandler = (e) => {
         e.preventDefault();
-        console.log(newUserAge);
-        console.log(newUserName)
-        newUserNameHandler('');
-        newUserAgeHandler('');
+        
+        const userData = {
+            username: newUserName,
+            age: newUserAge
+        }
+        props.onSaveUserData(userData)
+        // newUserAgeHandler;
+        // newUserNameHandler;
+        // newUserNameHandler('');
+        // newUserAgeHandler('');
+        setNewUserName("");
+        setNewUserAge("");
     }
 
 
