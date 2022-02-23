@@ -27,10 +27,7 @@ const Form = (props) => {
             age: newUserAge
         }
         props.onSaveUserData(userData)
-        // newUserAgeHandler;
-        // newUserNameHandler;
-        // newUserNameHandler('');
-        // newUserAgeHandler('');
+
         setNewUserName("");
         setNewUserAge("");
     }

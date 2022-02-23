@@ -7,14 +7,6 @@ import Form from './Form';
 const users = [{}];
 
 const Card = (props) => {
-    // const [newUser, setNewUser] = useState(props.users)
-
-    // const addUserHandler = (user)=> {
-    //     setNewUser((prevUsers)=> {
-    //       return[user, ... prevUsers]
-    //     })
-    //   }
-    //   onAddUser(addUserHandler);
 
     const userDataHandler = (enteredUserData) => {
         const newUserData = {
