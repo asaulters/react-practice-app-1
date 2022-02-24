@@ -38,12 +38,21 @@ function App() {
 
   }
 
+  
 
 
   return (
     <div>
-      <Card  onAddUser= {addUserHandler} />
-      <User />
+      <section className='user-form'>
+        <Card  
+          onAddUser= {addUserHandler} />
+      </section>
+      <section className='user-list'>
+        <User 
+
+        />
+      </section>
+      
     </div>
 
   );

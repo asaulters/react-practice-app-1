@@ -4,7 +4,7 @@ import React, {useState} from "react";
 import Form from './Form';
 // import Button from "./UI/Button";
 
-const users = [{}];
+
 
 const Card = (props) => {
 
