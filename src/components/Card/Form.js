@@ -10,12 +10,13 @@ const Form = (props) => {
 
     const newUserNameHandler = (e) => {
         setNewUserName(e.target.value)
+        console.log(newUserName)
 
     }
 
     const newUserAgeHandler = (e) => {
         setNewUserAge(e.target.value)
-        console.log(e.target.value)
+        console.log(newUserAge)
 
     }
 

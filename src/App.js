@@ -9,11 +9,13 @@ import './App.css';
 let users = [
   {
     username: 'Jim',
-    age: '73'
+    age: '73',
+    id: '0.34534'
   },
   {
     username: 'Tom',
-    age: '56'
+    age: '56',
+    id: '0.34534234234'
   }
 ];
 
@@ -22,14 +24,16 @@ function App() {
 
   const [newUser, setNewUser] = useState(users)
 
-  const addUserHandler = (user)=> {
-    setNewUser((user)=> {
-      users = [user, ...users]
+  const addUserHandler = (userData)=> {
+    setNewUser((userData)
+      // users = [{userData}]
+      // users = [...users]
       // return[user],
       // console.log(user)
-      // users.push(user)
-    })
-    console.log(user)
+      // users.push(userData)
+    )
+    // console.log(userData)
+    users.push(userData);
     console.log(users);
 
   }
