@@ -5,11 +5,19 @@ import UserItem from './UserItem';
 
 const User = (props) => {
 
-    const userMap = () => props.users.map(user => {
-        return props.users.username;
+    // const userMap = () => props.users.map(user => {
+    //     return `${props.username}`;
         
-    })
-    console.log(userMap);
+    // })
+    // console.log(userMap);
+    // const passedUsers = props.newUser;
+    // console.log(passedUsers)
+    // const a = () => {
+    //     console.log(users.username)
+    // }
+    // a();
+
+
 
 
     return (

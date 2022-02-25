@@ -4,19 +4,19 @@ import React, { useState } from 'react';
 
 const Form = (props) => {
 
-    const [newUserName, setNewUserName] = useState("''");
+    const [newUserName, setNewUserName] = useState("");
     const [newUserAge, setNewUserAge] = useState("");
     // const [isEditing, setIsEditing] = useState('false')
 
     const newUserNameHandler = (e) => {
         setNewUserName(e.target.value)
-        console.log(newUserName)
+        // console.log(newUserName)
 
     }
 
     const newUserAgeHandler = (e) => {
         setNewUserAge(e.target.value)
-        console.log(newUserAge)
+        // console.log(newUserAge)
 
     }
 

@@ -22,20 +22,38 @@ let users = [
 
 function App() {
 
-  const [newUser, setNewUser] = useState(users)
+  const [newUser, setNewUser] = useState([users])
 
   const addUserHandler = (userData)=> {
-    setNewUser((userData)
-      // users = [{userData}]
-      // users = [...users]
-      // return[user],
-      // console.log(user)
-      // users.push(userData)
-    )
+        // users.push(userData);
+    // const a = [userData, ...users];
+    // console.log(a)
+    // setNewUser(a)
+    // console.log(newUser)
+    setNewUser((prevUsers) => {
+      return[ userData, ...prevUsers]
+    });
+    setTimeout(() => {
+      console.log(newUser)
+    }, 10000)
+    // console.log(newUser)
     // console.log(userData)
-    users.push(userData);
-    console.log(users);
+    // users.push(userData);
+    // console.log(users);
+    // console.log(newUser);
 
+  }
+
+  const displayUsers = () => {
+    addUserHandler();
+    return newUser.map((user) => {
+      return(
+        <li>
+          {user}
+        </li>
+      )
+    })
+    console.log(newUser);
   }
 
   
@@ -45,11 +63,11 @@ function App() {
     <div>
       <section className='user-form'>
         <Card  
-          onAddUser= {addUserHandler} />
+          onAddUser= {displayUsers} />
       </section>
       <section className='user-list'>
         <User 
-
+          userArr= {[users]}
         />
       </section>
       
