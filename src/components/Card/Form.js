@@ -6,31 +6,47 @@ const Form = (props) => {
 
     const [newUserName, setNewUserName] = useState("");
     const [newUserAge, setNewUserAge] = useState("");
-    // const [isEditing, setIsEditing] = useState('false')
+    const [isValid, setIsValid] = useState(false);
+    const [isValidName, setIsValidName] = useState(false);
+    const [isValidAge, setIsValidAge] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+
 
     const newUserNameHandler = (e) => {
-        setNewUserName(e.target.value)
-        // console.log(newUserName)
-
+        if(e.target.value.trim().length > 0){
+            setIsValidName(true)
+            setNewUserName(e.target.value)
+        }
     }
 
     const newUserAgeHandler = (e) => {
-        setNewUserAge(e.target.value)
-        // console.log(newUserAge)
+        if(e.target.value.trim().length > 0){
+            setIsValidAge(true)
+            setNewUserAge(e.target.value)
+        }
 
     }
 
     const newUserHandler = (e) => {
         e.preventDefault();
-        
-        const userData = {
-            username: newUserName,
-            age: newUserAge
+        if(isValidAge === true && isValidName === true){
+            setIsValid(true);
+            const userData = {
+                username: newUserName,
+                age: newUserAge
+            }
+            props.onSaveUserData(userData)
+    
+            setNewUserName("");
+            setNewUserAge("");
+            setIsValidAge(false);
+            setIsValidName(false);
+            setIsValid(false)
+        } else {
+            console.log("Not valid!");
+            
+            
         }
-        props.onSaveUserData(userData)
-
-        setNewUserName("");
-        setNewUserAge("");
     }
 
 

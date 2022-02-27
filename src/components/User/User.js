@@ -5,30 +5,29 @@ import UserItem from './UserItem';
 
 const User = (props) => {
 
-    // const userMap = () => props.users.map(user => {
-    //     return `${props.username}`;
-        
+    const passedUsers = props.userList;
+    console.log(passedUsers)
+    // const users = passedUsers.map((user) => {
+    //     return (
+            
+    //     )
     // })
-    // console.log(userMap);
-    // const passedUsers = props.newUser;
-    // console.log(passedUsers)
-    // const a = () => {
-    //     console.log(users.username)
-    // }
-    // a();
+    if(props.userList.length === 0) {
+        return <h2>Found no users!</h2>
+    } else {
+        return (
+            <ul>
+                {props.userList.map((user)=> (
+                    <UserItem 
+                        key={user.id}
+                        username={user.username}
+                        age={user.age}
+                    />
+                ))}
+            </ul>
+        );
+    }
 
-
-
-
-    return (
-        <section>
-        {/* {props.users.map(user => ) } */}
-        <li className='user-LI'>    
-            <h3 className='user-LI__username'>{props.username}</h3>
-            <div className='user-LI__age'>{props.age}</div>
-        </li>
-        </section>
-    );
 }
 
 export default User;

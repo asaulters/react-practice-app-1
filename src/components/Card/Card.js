@@ -8,6 +8,8 @@ import Form from './Form';
 
 const Card = (props) => {
 
+    
+
     const userDataHandler = (enteredUserData) => {
         const newUserData = {
             ...enteredUserData,
@@ -16,9 +18,6 @@ const Card = (props) => {
         props.onAddUser(newUserData);
         
     }
-
-    //     const passedUsers = { props.users };
-    // console.log(passedUsers)
 
     return(
         <div>
