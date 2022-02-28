@@ -5,19 +5,8 @@ import React, {useState} from 'react';
 import Card from './components/Card/Card'
 import User from './components/User/User'
 import './App.css';
-
-// let users = [
-//   {
-//     username: 'Jim',
-//     age: '73',
-//     id: '0.34534'
-//   },
-//   {
-//     username: 'Tom',
-//     age: '56',
-//     id: '0.34534234234'
-//   }
-// ];
+import Modal from './components/Modal/Modal';
+import useModal from './components/Modal/useModal'
 
 let users = [];
 
@@ -25,6 +14,7 @@ let users = [];
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [newUser, setNewUser] = useState([users]);
+  const {isShowing, toggle} = useModal();
 
   const addUserHandler = (userData)=> {
     
@@ -37,7 +27,7 @@ function App() {
 
 
   const modalHandler = () =>{
-    
+
   }
 
   return (
@@ -54,6 +44,12 @@ function App() {
         <User 
           userList= {newUser}
           
+        />
+      </section>
+      <section className='modal'>
+        <Modal 
+          isShowing={isShowing}
+          hide={toggle}
         />
       </section>
       

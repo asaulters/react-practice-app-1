@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
 // import Button from './UI/Button'
+import Modal from '../Modal/Modal';
+import useModal from '../Modal/useModal';
 
 const Form = (props) => {
 
@@ -43,8 +45,16 @@ const Form = (props) => {
             setIsValidName(false);
             setIsValid(false)
         } else {
+
+            return(
+                <div>
+                    <useModal />;
+                   { console.log("Not valid!")}
+                </div>
+            )
             console.log("Not valid!");
-            
+
+            // <useModal />
             
         }
     }
