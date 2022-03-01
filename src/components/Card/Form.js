@@ -12,6 +12,7 @@ const Form = (props) => {
     const [isValidName, setIsValidName] = useState(false);
     const [isValidAge, setIsValidAge] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
+    const [error, setError] = useState();
 
     const {isShowing, toggle} = useModal();
 
@@ -24,7 +25,7 @@ const Form = (props) => {
     }
 
     const newUserAgeHandler = (e) => {
-        if(e.target.value.trim().length > 0){
+        if(e.target.value.trim().length > 0 && e.target.value >0){
             setIsValidAge(true)
             setNewUserAge(e.target.value)
         }
@@ -39,8 +40,10 @@ const Form = (props) => {
     }
 
     const closeModal = () =>{
-        setIsOpen(false)
+        setIsOpen(false);
+        setError(null);
     }
+
 
     const newUserHandler = (e) => {
         e.preventDefault();
@@ -61,9 +64,7 @@ const Form = (props) => {
 
             return(
                 <div>
-                <Modal >
-                    {setIsOpen(true)}
-                </Modal>
+                {setError(true)}
                 { console.log("Not valid!")}
                 </div>
             )
@@ -77,21 +78,24 @@ const Form = (props) => {
 
 
     return(
-        <form onSubmit={newUserHandler}>
-            <label>Username</label>
-                <input 
-                type='text' 
-                value={newUserName}
-                onChange={newUserNameHandler} />
-            <label>Age (Years)</label>
-                <input
-                type='text' 
-                value={newUserAge}
-                min='0'
-                max='150'
-                onChange={newUserAgeHandler} /> 
-            <button >Add User</button>  
-        </form>
+        <div>
+            {error && <Modal title="An Error Occured!" message="Something went wrong" onConfirm={closeModal}/>}
+            <form onSubmit={newUserHandler}>
+                <label>Username</label>
+                    <input 
+                    type='text' 
+                    value={newUserName}
+                    onChange={newUserNameHandler} />
+                <label>Age (Years)</label>
+                    <input
+                    type='text' 
+                    value={newUserAge}
+
+                    max='150'
+                    onChange={newUserAgeHandler} /> 
+                <button >Add User</button>  
+            </form>
+        </div>
     )
 }
 

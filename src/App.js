@@ -51,12 +51,6 @@ const closeModal = () =>{
           
         />
       </section>
-      <section className='modal'>
-        <Modal 
-          isOpen={false}
-          hide={toggle}
-        />
-      </section>
       
     </div>
 
