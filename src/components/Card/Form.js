@@ -13,6 +13,8 @@ const Form = (props) => {
     const [isValidAge, setIsValidAge] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
 
+    const {isShowing, toggle} = useModal();
+
 
     const newUserNameHandler = (e) => {
         if(e.target.value.trim().length > 0){
@@ -27,6 +29,17 @@ const Form = (props) => {
             setNewUserAge(e.target.value)
         }
 
+    }
+
+    const modalHandler = () =>{
+        
+    }
+    const openModal = () => {
+        setIsOpen(true)
+    }
+
+    const closeModal = () =>{
+        setIsOpen(false)
     }
 
     const newUserHandler = (e) => {
@@ -48,8 +61,10 @@ const Form = (props) => {
 
             return(
                 <div>
-                    <useModal />;
-                   { console.log("Not valid!")}
+                <Modal >
+                    {setIsOpen(true)}
+                </Modal>
+                { console.log("Not valid!")}
                 </div>
             )
             console.log("Not valid!");

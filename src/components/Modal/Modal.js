@@ -1,15 +1,30 @@
 import React, {useState} from "react";
 import ReactDom from "react-dom";
+import Modal from "react-modal";
 
-const Modal = ({isShowing, hide}) => isShowing? ReactDom.createPortal(
-<React.Fragment>
-    <h1>Modal!!</h1>
-</React.Fragment>
+Modal.setAppElement("#root");
 
-) : null;
+export default function App(props) {
 
+    const [isOpen, setIsOpen] = useState(false);
 
-    
+    const openModal = () => {
+        setIsOpen(true)
+    }
 
+    const closeModal = () =>{
+        setIsOpen(false)
+    }
 
-export default Modal;
+    return(
+        <div>
+            <Modal
+                isOpen={props.openModal}
+                onClose={closeModal}
+            />
+            <h2>Modal JS</h2>
+        </div>
+    )
+
+}
+

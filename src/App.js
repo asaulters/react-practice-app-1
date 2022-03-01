@@ -15,6 +15,7 @@ function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [newUser, setNewUser] = useState([users]);
   const {isShowing, toggle} = useModal();
+  
 
   const addUserHandler = (userData)=> {
     
@@ -26,9 +27,13 @@ function App() {
   }
 
 
-  const modalHandler = () =>{
+  const openModal = () => {
+    setIsOpen(true)
+}
 
-  }
+const closeModal = () =>{
+    setIsOpen(false)
+}
 
   return (
     <div>
@@ -48,7 +53,7 @@ function App() {
       </section>
       <section className='modal'>
         <Modal 
-          isShowing={isShowing}
+          isOpen={false}
           hide={toggle}
         />
       </section>
