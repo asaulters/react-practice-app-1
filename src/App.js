@@ -57,7 +57,7 @@ const closeModal = () =>{
   );
 }
 
-// git add .
-// git add .
+// git add ..
+// git add ..
 
 export default App;
